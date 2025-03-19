@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sobre Multimédia</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        .opcao { 
+            display: block; 
+            margin: 10px; 
+            padding: 10px; 
+            cursor: pointer; 
+            border: 1px solid #000; 
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .correto { background-color: lightgreen; }
+        .errado { background-color: lightcoral; }
+        .desativado { pointer-events: none; opacity: 0.5; }
+    </style>
+</head>
+<body>
+
+    <h2>Considerando as tecnologias envolvidas na produção e armazenamento de conteúdos multimédia, qual das opções abaixo descreve corretamente o processo de armazenamento e acesso a um vídeo dos One Direction, desde a captura até à reprodução?</h2>
+
+    <div id="opcoes">
+        <div class="opcao" onclick="verificarResposta(this, false)">O vídeo é capturado por uma câmara digital, armazenado diretamente num disco rígido e posteriormente transmitido para um monitor através de uma placa de som que converte os dados para áudio.</div>
+        <div class="opcao" onclick="verificarResposta(this, true)">O vídeo é capturado por uma câmara digital, armazenado numa pen, e quando acessado para reprodução, o arquivo é transferido para o disco rígido e exibido no monitor através de uma placa gráfica.</div>
+        <div class="opcao" onclick="verificarResposta(this, false)">O vídeo é capturado por uma webcam, armazenado diretamente na memória RAM do computador e, para visualização, é transferido para um projetor de vídeo que exibe a imagem em uma tela externa.</div>
+        <div class="opcao" onclick="verificarResposta(this, false)">O vídeo é capturado por uma câmara digital, armazenado no disco SSD e exibido em tempo real através de um touchscreen, onde o usuário pode interagir diretamente com a tela para controlar a reprodução.</div>
+    </div>
+
+    <script>
+        let respondido = false;
+
+        function verificarResposta(elemento, correta) {
+            if (respondido) return;
+            respondido = true;
+
+            document.querySelectorAll('.opcao').forEach(el => {
+                el.classList.add('desativado');  // Desativa todas as opções após resposta
+            });
+
+            if (correta) {
+                elemento.classList.add('correto');
+            } else {
+                elemento.classList.add('errado');
+            }
+        }
+    </script>
+
+</body>
+</html>
