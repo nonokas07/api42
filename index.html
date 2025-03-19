@@ -36,6 +36,21 @@
     <script>
         let respondido = false;
 
+        // Função para embaralhar as opções
+        function embaralharOpcoes() {
+            const opcoes = document.querySelectorAll('.opcao');
+            const opcoesArray = Array.from(opcoes);
+            opcoesArray.sort(() => Math.random() - 0.5); // Embaralha as opções
+
+            // Adiciona as opções embaralhadas de volta ao DOM
+            const container = document.getElementById('opcoes');
+            container.innerHTML = ''; // Limpa as opções existentes
+            opcoesArray.forEach(opcao => container.appendChild(opcao)); // Re-adiciona as opções embaralhadas
+        }
+
+        // Chama a função de embaralhar ao carregar a página
+        window.onload = embaralharOpcoes;
+
         function verificarResposta(elemento, correta) {
             if (respondido) return;
             respondido = true;
